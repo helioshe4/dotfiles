@@ -9,29 +9,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'Valloric/YouCompleteMe' "autocomplete
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -42,39 +23,30 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" General Settings
+set number                    " Enable line numbers
+set noeb vb t_vb=             " Disable bell sound
+set mouse=a                   " Enable mouse scroll/click
+syntax on                     " Turn on syntax highlighting
+set encoding=utf-8            " Set encoding to UTF-8
 
-"line numbers
-set number
-filetype indent on
+" Tab Settings
+set autoindent                " Enable auto indentation
+set tabstop=4                 " Set tab width
+set softtabstop=4
+set shiftwidth=4              " Set indentation width
+set expandtab                 " Expand tabs to spaces
+set smarttab
 
-"bell sound off
-set noeb vb t_vb=
-au GUIEnter * set vb t_vb=
+" Color Theme
+color desert                  " Set color theme to desert
 
-"tab settings
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-"color theme desert
-color desert
-
-"enable mouse scroll/click
-set mouse=a
-
-"automatically close tabs
-"open brace twice will only insert one open brace
-"if you quickly type open close, nothing happens
+" Autoclose Braces Settings
 "inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
 
-"turn on syntax highlighting
-syntax on
-
-set encoding=utf-8
-
-"disables preview window for vim autocomplete
-set completeopt-=preview
+" Additional Settings
+au GUIEnter * set vb t_vb=    " Disable visual bell in GUI
+set completeopt-=preview      " Disable preview window for Vim autocomplete
