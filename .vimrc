@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe' "autocomplete
 call vundle#end()            " required
-filetype plugin on
+filetype plugin indent on
 
 "
 " Brief help
@@ -29,23 +29,52 @@ set noeb vb t_vb=             " Disable bell sound
 set mouse=a                   " Enable mouse scroll/click
 syntax on                     " Turn on syntax highlighting
 set encoding=utf-8            " Set encoding to UTF-8
+set hlsearch                  " Highlight search words
+set incsearch                 " Incremental search
+set scrolloff=5               " 5 lines always above/below cursor
 
 " Tab Settings
 set autoindent                " Enable auto indentation
-set tabstop=4                 " Set tab width
-set softtabstop=4
-set shiftwidth=4              " Set indentation width
+set tabstop=2                 " Set tab width
+set softtabstop=2
+set shiftwidth=2              " Set indentation width
 set expandtab                 " Expand tabs to spaces
 set smarttab
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+
+" Python PEP 8 formatting
+"au BufNewFile,BufRead *.py
+"  set tabstop=4 |
+"  set softtabstop=4 |
+"  set shiftwidth=4 |
+"  set textwidth=79 |
+"  set expandtab |
+"  set autoindent |
+"  set fileformat=unix |
+"  setf python
+
+" JavaScript Settings
+autocmd FileType javascript setlocal formatoptions-=ro " Removes '//' in newline
 
 " Color Theme
 color desert                  " Set color theme to desert
 
+" Keybindings
 " Autoclose Braces Settings
 "inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Disable hlsearch highlighting on esc
+nnoremap <CR> :nohlsearch<CR><CR>
 
 " Additional Settings
 au GUIEnter * set vb t_vb=    " Disable visual bell in GUI
