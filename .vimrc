@@ -9,7 +9,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe' "autocomplete
+Plugin 'Valloric/YouCompleteMe'   "autocomplete
+Plugin 'vim-syntastic/syntastic'  "syntax
+Plugin 'nvie/vim-flake8'          "PEP8
+Plugin 'vim-airline/vim-airline'  "Status line
 call vundle#end()            " required
 filetype plugin indent on
 
@@ -32,6 +35,15 @@ set encoding=utf-8            " Set encoding to UTF-8
 set hlsearch                  " Highlight search words
 set incsearch                 " Incremental search
 set scrolloff=5               " 5 lines always above/below cursor
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Tab Settings
 set autoindent                " Enable auto indentation
