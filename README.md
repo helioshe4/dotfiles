@@ -1,3 +1,3 @@
-# vimrc-setup
+# dotfiles
 
-My vim setup
+Some config files
