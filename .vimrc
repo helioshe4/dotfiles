@@ -13,6 +13,7 @@ Plugin 'Valloric/YouCompleteMe'   "autocomplete
 Plugin 'vim-syntastic/syntastic'  "syntax
 Plugin 'nvie/vim-flake8'          "PEP8
 Plugin 'vim-airline/vim-airline'  "Status line
+Plugin 'christoomey/vim-tmux-navigator' "tmux pane navigator
 call vundle#end()            " required
 filetype plugin indent on
 
